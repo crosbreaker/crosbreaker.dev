@@ -181,6 +181,84 @@ body::before {
     flex-direction:column;
     align-items:center;
     gap: 16px;
-    padding: 60px 24px;
+    padding: 20px 24px;
     text-align:center;
 }
+
+.members {
+    position:relative;
+    z-index:1;
+    width: 100%;
+    max-width:900px;
+    padding: 28px 24px;
+}
+
+.mem-hdr {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color:var(--dark-sub);
+    text-transform:lowercase;
+    margin-bottom: 16px;
+}
+
+.mem-grid {
+    display:grid;
+    grid-template-columns: repeat(3,260px);
+    gap:10px;
+}
+
+.mem-card {
+    display: flex;
+    align-items:center;
+    gap: 16px;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.mem-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.14);
+}
+
+.mem-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit:cover;
+    flex-shrink:0;
+    align-self:center;
+    background: rgba(255,255,255,0.06);
+}
+
+.mem-info {
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+    min-width:0;
+    justify-content:center;
+}
+
+.mem-name {
+    font-size: 14px;
+    font-weight:500;
+    color:var(--main);
+    letter-spacing: 0.03em;
+    margin-right:15px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+.mem-status {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing:0.06em;
+}
+
+.mem-status.online {color:#4ade80;}
+.mem-status.idle {color:#fbbf24;}
+.mem-status.offline {color:var(--dark-sub);}
