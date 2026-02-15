@@ -8,5 +8,5 @@ export const PROJECT_REPOS: ProjectRepo[] = [
   { owner: "crosbreaker", repo: "baddieapple" },
   { owner: "crosbreaker", repo: "sh1ttyOOBE" },
   { owner: "crosbreaker", repo: "sh1ttyexec" },
-  { owner: "crosbreaaker", repo: "crosbreaker.dev" },
+  { owner: "crosbreaker", repo: "crosbreaker.dev" },
 ];
