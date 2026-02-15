@@ -1,0 +1,179 @@
+*, *::before, *::after {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+/* var declarations*/
+:root {
+    --main:#fff;
+    --sub:#fff9;
+    --dark-sub:#fff6;
+    --border:rgba(255,255,255,0.18);
+    --bg-bar:rgba(12,12,14,0.72);
+    --bg-page:#000;
+}
+
+body {
+    background: var(--bg-page);
+    font-family:'Geist Mono',monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:80px;
+}
+
+/*grid stuff*/
+body::before {
+    content:'';
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index: 0;
+}
+
+.topbar {
+    position: fixed;
+    top: 12px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 22px;
+    height: 44px;
+    background: var(--bg-bar);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 10px;
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    0 4px 24px rgba(0,0,0,0.55),
+    0 1px 0 rgba(255,255,255,0.06) inset;
+    animation:slideIn 0.45s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform:translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity:1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.tb-logo {
+    display: flex;
+    align-items:center;
+    gap: 8px;
+    text-decoration:none;    
+}
+
+.tb-icon {
+    width: 16px;
+    height: 16px;
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+}
+
+.tb-icon img {
+    width: 16px;
+    height:16px;
+}
+
+.tb-name {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing:0.08em;
+    color: var(--main);
+    text-transform:lowercase;
+    white-space:nowrap;
+}
+
+.tb-div {
+    width: 1px;
+    height: 16px;
+    background: var(--border);
+    flex-shrink:0;
+}
+
+.tb-nav {
+    display:flex;
+    align-items:center;
+    gap:2px;
+}
+
+.tb-link {
+    font-family:'Geist Mono', monospace;
+    font-size: 12px;
+    font-weight:400;
+    letter-spacing: 0.04em;
+    color: var(--sub);
+    text-decoration: none;
+    padding: 4px 9px;
+    border-radius:6px;
+    transition: color 0.15s, background 0.15s; /* yes vscode background is VERY bad*/
+    white-space:nowrap;
+}
+
+.tb-link:hover {
+    color:var(--main);
+    background: rgba(255,255,255,0.07);
+}
+
+.tb-link.active {
+    color:var(--main);
+    background: rgba(255,255,255,0.1);
+}
+
+.tb-right {
+    display: flex;
+    align-items:center;
+    gap:8px;
+    margin-left:auto;
+}
+
+.tb-btn {
+    font-family:'Geist Mono', monospace;    
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color:#000;
+    background:var(--main);
+    border: none;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor:pointer;
+    transition: opacity 0.15s, transform 0.1s;
+    white-space:nowrap;
+}
+
+.tb-btn:hover {
+    opacity: 0.88;
+    transform:translateY(-1px);
+}
+
+.tb-btn:active {
+    transform:translateY(0);
+}
+
+.pagecontent {
+    position:relative;
+    z-index: 1;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 16px;
+    padding: 60px 24px;
+    text-align:center;
+}
