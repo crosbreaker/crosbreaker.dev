@@ -1,0 +1,35 @@
+---
+import Footer from "../components/Footer.astro";
+import MemberCard from "../components/MemberCard.astro";
+import Navbar from "../components/Navbar.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import SectionDivider from "../components/SectionDivider.astro";
+import { MEMBERS } from "../config/members";
+import { PROJECT_REPOS } from "../config/projects";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/main.css";
+---
+
+<BaseLayout>
+  <script>
+    import "../scripts/app.ts";
+  </script>
+
+  <Navbar />
+
+  <SectionDivider kind="members" label="MEMBERS:" />
+
+  <div class="members-container">
+    {MEMBERS.map((member) => <MemberCard member={member} />)}
+  </div>
+
+  <SectionDivider kind="projects" label="PROJECTS:" />
+
+  <div class="projects-container">
+    {PROJECT_REPOS.map((project, index) => <ProjectCard project={project} index={index} />)}
+  </div>
+
+  <div class="content-spacer"></div>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,20 @@
+---
+interface Props {
+  kind: "members" | "projects";
+  label: string;
+}
+
+const { kind, label } = Astro.props;
+const sectionClass = `${kind}-section`;
+const dividerClass = `${kind}-divider`;
+const lineClass = `${kind}-line`;
+const textClass = `${kind}-text`;
+---
+
+<div class={sectionClass}>
+  <div class={dividerClass}>
+    <div class={lineClass}></div>
+    <div class={textClass}>{label}</div>
+    <div class={lineClass}></div>
+  </div>
+</div>
