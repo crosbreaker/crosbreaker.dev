@@ -6,10 +6,10 @@
   padding: 18px 36px;
 	border: 2px solid var(--color-border);
 	border-radius: var(--radius-xl);
-	background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(10px);
   z-index: 1000;
-  box-shadow: var(--shadow-glow);
+  box-shadow: none;
 }
 
 .navbar-content {
