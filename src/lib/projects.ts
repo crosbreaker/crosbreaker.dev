@@ -16,19 +16,24 @@ function clearLoading(el: Element | null): void {
   el.classList.remove("loading");
 }
 
-async function loadProjectData(project: ProjectRepo, cardId: string): Promise<void> {
+async function loadProjectData(
+  project: ProjectRepo,
+  cardId: string,
+): Promise<void> {
   const card = document.getElementById(cardId);
   if (!card) {
     return;
   }
 
   try {
-    const response = await fetch(`https://api.github.com/repos/${project.owner}/${project.repo}`, {
-      headers: {
-        Accept: "application/vnd.github+json",
-        "User-Agent": "crosbreaker-dev"
-      }
-    });
+    const response = await fetch(
+      `https://api.github.com/repos/${project.owner}/${project.repo}`,
+      {
+        headers: {
+          Accept: "application/vnd.github+json",
+        },
+      },
+    );
 
     if (!response.ok) {
       throw new Error(`GitHub responded with ${response.status}`);
@@ -37,8 +42,12 @@ async function loadProjectData(project: ProjectRepo, cardId: string): Promise<vo
     const data = (await response.json()) as GitHubRepoResponse;
 
     const nameEl = card.querySelector<HTMLAnchorElement>(".project-name");
-    const descriptionEl = card.querySelector<HTMLElement>(".project-description");
-    const descriptionTextEl = card.querySelector<HTMLElement>(".project-description-text");
+    const descriptionEl = card.querySelector<HTMLElement>(
+      ".project-description",
+    );
+    const descriptionTextEl = card.querySelector<HTMLElement>(
+      ".project-description-text",
+    );
     const starCountEl = card.querySelector<HTMLElement>(".project-star-count");
     const forkCountEl = card.querySelector<HTMLElement>(".project-fork-count");
 
@@ -49,7 +58,8 @@ async function loadProjectData(project: ProjectRepo, cardId: string): Promise<vo
     }
 
     if (descriptionTextEl) {
-      descriptionTextEl.textContent = data.description || "No description available";
+      descriptionTextEl.textContent =
+        data.description || "No description available";
     }
 
     if (descriptionEl) {
@@ -69,8 +79,12 @@ async function loadProjectData(project: ProjectRepo, cardId: string): Promise<vo
     card.classList.remove("error");
   } catch {
     const nameEl = card.querySelector<HTMLElement>(".project-name");
-    const descriptionEl = card.querySelector<HTMLElement>(".project-description");
-    const descriptionTextEl = card.querySelector<HTMLElement>(".project-description-text");
+    const descriptionEl = card.querySelector<HTMLElement>(
+      ".project-description",
+    );
+    const descriptionTextEl = card.querySelector<HTMLElement>(
+      ".project-description-text",
+    );
     const starCountEl = card.querySelector<HTMLElement>(".project-star-count");
     const forkCountEl = card.querySelector<HTMLElement>(".project-fork-count");
 
