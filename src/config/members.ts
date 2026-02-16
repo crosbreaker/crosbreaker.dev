@@ -16,4 +16,5 @@ export const MEMBERS: MemberProfile[] = [
   { id: "821086846636916737", github: "https://github.com/DMDCR" },
   { id: "1426598979302457446", github: "https://github.com/xXMariahScaryXx" },
   { id: "952792525637312552", github: "https://github.com/kxtzownsu" },
+  { id: "1264014997063995536", github: "https://github.com/genericness" },
 ];
