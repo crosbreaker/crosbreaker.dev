@@ -34,3 +34,4 @@ async function loadMember(id) {
 }
 
 mems.forEach(loadMember);
+lucide.createIcons();
