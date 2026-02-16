@@ -16,6 +16,18 @@
 .members-line {
   flex: 1;
   height: 1px;
+}
+
+.members-line--left {
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(108, 112, 134, 0.1) 20%,
+    rgba(108, 112, 134, 0.2) 40%,
+    rgba(108, 112, 134, 0.4) 70%,
+    rgba(108, 112, 134, 0.6) 100%);
+}
+
+.members-line--right {
   background: linear-gradient(to right,
     rgba(108, 112, 134, 0.6) 0%,
     rgba(108, 112, 134, 0.4) 30%,
@@ -53,6 +65,18 @@
 .projects-line {
   flex: 1;
   height: 1px;
+}
+
+.projects-line--left {
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(108, 112, 134, 0.1) 20%,
+    rgba(108, 112, 134, 0.2) 40%,
+    rgba(108, 112, 134, 0.4) 70%,
+    rgba(108, 112, 134, 0.6) 100%);
+}
+
+.projects-line--right {
   background: linear-gradient(to right,
     rgba(108, 112, 134, 0.6) 0%,
     rgba(108, 112, 134, 0.4) 30%,

@@ -13,8 +13,8 @@ const textClass = `${kind}-text`;
 
 <div class={sectionClass}>
   <div class={dividerClass}>
-    <div class={lineClass}></div>
+    <div class={`${lineClass} ${lineClass}--left`}></div>
     <div class={textClass}>{label}</div>
-    <div class={lineClass}></div>
+    <div class={`${lineClass} ${lineClass}--right`}></div>
   </div>
 </div>
