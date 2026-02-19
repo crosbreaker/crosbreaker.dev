@@ -2,12 +2,55 @@
 interface Props {
   title?: string;
   description?: string;
+  canonicalUrl?: string;
 }
 
+const SITE_URL = "https://crosbreaker.dev";
+const DEFAULT_TITLE = "Crosbreaker - ChromeOS Exploit Research Group";
+const DEFAULT_DESCRIPTION =
+  "Crosbreaker is a ChromeOS exploit research group. Creators of sh1ttyOOBE, badsh1mmer, baddieapple, sh1ttyexec, and badbr0ker — tools for ChromeOS unenrollment, code execution, and developer mode access.";
+const OG_IMAGE = `${SITE_URL}/assets/banner.jpg`;
+const OG_IMAGE_ALT = "Crosbreaker - ChromeOS Exploit Research Group";
+
 const {
-  title = "crosbreaker",
-  description = "We are a small chromeOS exploiting group. We have created sh1ttyOOBE, dededeicarus, BadApple-Utilities, badsh1mmer and badbr0ker."
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  canonicalUrl = SITE_URL,
 } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Crosbreaker",
+      url: SITE_URL,
+      logo: `${SITE_URL}/assets/crosbreaker.webp`,
+      description: DEFAULT_DESCRIPTION,
+      sameAs: [
+        "https://github.com/orgs/crosbreaker/repositories",
+        "https://discord.com/invite/crosbreaker-1375357349425971231",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Crosbreaker",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      description: DEFAULT_DESCRIPTION,
+    },
+    {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+      url: canonicalUrl,
+      name: title,
+      description: description,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -17,28 +60,36 @@ const {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="crosbreaker" />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content="https://crosbreaker.dev" />
-    <meta property="og:site_name" content="crosbreaker" />
-    <meta property="og:image:alt" content="Crosbreaker - ChromeOS Exploit Group" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Crosbreaker" />
+    <meta property="og:image" content={OG_IMAGE} />
+    <meta property="og:image:alt" content={OG_IMAGE_ALT} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="crosbreaker" />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://crosbreaker.dev/assets/banner.jpg" />
-    <meta name="twitter:image:alt" content="Crosbreaker - ChromeOS Exploiting Group" />
+    <meta name="twitter:image" content={OG_IMAGE} />
+    <meta name="twitter:image:alt" content={OG_IMAGE_ALT} />
 
     <meta name="theme-color" content="#000000" />
-    <meta name="author" content="crosbreaker" />
+    <meta name="author" content="Crosbreaker" />
     <meta
       name="keywords"
-      content="chromeos, exploiting, sh1ttyOOBE, badbr0ker, chrome, security, hacking, dededeicarus"
+      content="chromeos exploits, chromebook unenrollment, chromeos developer mode, sh1ttyOOBE, badsh1mmer, baddieapple, sh1ttyexec, badbr0ker, chromeos enterprise enrollment bypass, chromebook root shell, chromeos code execution, chromeos security research, SH1MMER, chromeos recovery image, managed chromebook, school chromebook exploit, chromeos OOBE exploit, chromebook keyroll"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

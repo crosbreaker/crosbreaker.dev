@@ -17,17 +17,44 @@ import "../styles/main.css";
 
   <Navbar />
 
-  <SectionDivider kind="members" label="MEMBERS" />
+  <main>
+    <section aria-label="Members">
+      <SectionDivider kind="members" label="MEMBERS" />
 
-  <div class="members-container">
-    {MEMBERS.map((member) => <MemberCard member={member} />)}
-  </div>
+      <div class="members-container">
+        {MEMBERS.map((member) => <MemberCard member={member} />)}
+      </div>
+    </section>
 
-  <SectionDivider kind="projects" label="PROJECTS" />
+    <section aria-label="Projects">
+      <SectionDivider kind="projects" label="PROJECTS" />
 
-  <div class="projects-container">
-    {PROJECT_REPOS.map((project, index) => <ProjectCard project={project} index={index} />)}
-  </div>
+      <div class="projects-container">
+        {PROJECT_REPOS.map((project, index) => <ProjectCard project={project} index={index} />)}
+      </div>
+    </section>
+
+    <noscript>
+      <div>
+        <h1>Crosbreaker</h1>
+        <p>Crosbreaker is a ChromeOS exploit research group. Creators of sh1ttyOOBE, badsh1mmer, baddieapple, sh1ttyexec, and badbr0ker.</p>
+        <h2>Projects</h2>
+        <ul>
+          {PROJECT_REPOS.map((project) => (
+            <li>
+              <a href={`https://github.com/${project.owner}/${project.repo}`}>{project.repo}</a>
+            </li>
+          ))}
+        </ul>
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://github.com/orgs/crosbreaker/repositories">GitHub</a></li>
+          <li><a href="https://docs.crosbreaker.dev">Documentation</a></li>
+          <li><a href="https://dl.crosbreaker.dev">Downloads</a></li>
+        </ul>
+      </div>
+    </noscript>
+  </main>
 
   <div class="content-spacer"></div>
 

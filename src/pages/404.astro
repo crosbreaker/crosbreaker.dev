@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import "../styles/main.css";
+---
+
+<BaseLayout title="Page Not Found - Crosbreaker" description="The page you are looking for does not exist." canonicalUrl="https://crosbreaker.dev/404">
+  <Navbar />
+  <main style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; text-align: center; padding: 2rem;">
+    <h1 style="font-family: 'Doto', monospace; font-size: 4rem; color: #fff; margin: 0;">404</h1>
+    <p style="color: #888; font-size: 1.2rem; margin-top: 1rem;">This page does not exist.</p>
+    <a href="/" style="color: #6c63ff; margin-top: 1.5rem; text-decoration: none; font-size: 1rem;">Back to home</a>
+  </main>
+</BaseLayout>
