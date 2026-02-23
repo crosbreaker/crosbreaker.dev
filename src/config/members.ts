@@ -5,7 +5,7 @@ export interface MemberProfile {
 
 export const MEMBERS: MemberProfile[] = [
   { id: "1471366391943921746", github: "https://github.com/ap5z" },
-  { id: "825790210960654336", github: "https://github.com/HarryTarryJarry" },
+  { id: "777641034959552512", github: "https://github.com/HarryTarryJarry" },
   { id: "423971987208142849", github: "https://github.com/codenerd87" },
   { id: "1426742678506311740", github: "https://github.com/crossjbly" },
   { id: "1042919810469740625", github: "https://github.com/SPIRAME" },
